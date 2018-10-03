@@ -1,0 +1,54 @@
+
+
+RNA SEQ PIPELINE: 
+
+#Indexing REFERENCE HUMAN GENOME BUILD
+All the files are in ensemble-ref_build93 accessible from home dir. To index the respective files run the following 
+• From bowtie2-index folder run :
+bowtie2-build Homo_sapiens.GRCh38.dna.primary_assembly.fa Homo_sapiens.GRCh38.dna.primary_assembly
+• From bowtie2-index folder run :
+tophat2 -G Homo_sapiens.GRCh38.93.gtf.gz --transcriptome-index=trans_th2_idx/known Homo_sapiens.GRCh38.dna.primary_assembly)
+• from the cDNA folder run :
+bowtie2-build Homo_sapiens.GRCh38.cdna.all.fa bowtie2-build Homo_sapiens.GRCh38.cdna.all
+• from the genome folder run -
+samtools faidx Homo_sapiens.GRCh38.dna.primary_assembly.fa
+
+
+
+# Aligning SEQUENCING DATA TO REFERENCE GENOME  :: TOPHAT_script.sh
+tophat2 -p 5 -r -24 --mate-std-dev 85 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o D152V_U2992_1_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/D152V_U2992_1_NonPhiX_R1.fq ../odd_roza_rnaseq/D152V_U2992_1_NonPhiX_R2.fq 2> log/D152V_U2992_1_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -27 --mate-std-dev 83 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o D152V_U2992_2_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/D152V_U2992_2_NonPhiX_R1.fq ../odd_roza_rnaseq/D152V_U2992_2_NonPhiX_R2.fq 2> log/D152V_U2992_2_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -27 --mate-std-dev 81 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o D152V_U2992_3_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/D152V_U2992_3_NonPhiX_R1.fq ../odd_roza_rnaseq/D152V_U2992_3_NonPhiX_R2.fq 2> log/D152V_U2992_3_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -30 --mate-std-dev 80 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o hcM_U2992_1_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/hcM_U2992_1_NonPhiX_R1.fq ../odd_roza_rnaseq/hcM_U2992_1_NonPhiX_R2.fq 2> log/hcM_U2992_1_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -35 --mate-std-dev 78 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o hcM_U2992_2_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/hcM_U2992_2_NonPhiX_R1.fq ../odd_roza_rnaseq/hcM_U2992_2_NonPhiX_R2.fq 2> log/hcM_U2992_2_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -35 --mate-std-dev 76 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o hcM_U2992_3_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/hcM_U2992_3_NonPhiX_R1.fq ../odd_roza_rnaseq/hcM_U2992_3_NonPhiX_R2.fq 2> log/hcM_U2992_3_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -25 --mate-std-dev 83 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o pEF1_1_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/pEF1_1_NonPhiX_R1.fq ../odd_roza_rnaseq/pEF1_1_NonPhiX_R2.fq 2> log/pEF1_1_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -27 --mate-std-dev 82 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o pEF1_2_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/pEF1_2_NonPhiX_R1.fq ../odd_roza_rnaseq/pEF1_2_NonPhiX_R2.fq 2> log/pEF1_2_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -25 --mate-std-dev 83 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o pEF1_3_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/pEF1_3_NonPhiX_R1.fq ../odd_roza_rnaseq/pEF1_3_NonPhiX_R2.fq 2> log/pEF1_3_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -61 --mate-std-dev 55 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o pEF1_U2992_1_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/pEF1_U2992_1_NonPhiX_R1.fq ../odd_roza_rnaseq/pEF1_U2992_1_NonPhiX_R2.fq 2> log/pEF1_U2992_1_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -14 --mate-std-dev 89 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o pEF1_U2992_2_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/pEF1_U2992_2_NonPhiX_R1.fq ../odd_roza_rnaseq/pEF1_U2992_2_NonPhiX_R2.fq 2> log/pEF1_U2992_2_NonPhiX_tophat2.out2 &
+
+
+tophat2 -p 5 -r -23 --mate-std-dev 83 --library-type fr-firststrand --no-mixed --no-novel-juncs --transcriptome-index ../reference_human_genome/ensembl/bowtie2-index/trans_th2_idx/known -o pEF1_U2992_3_NonPhiX_tophat2 ../reference_human_genome/ensembl/bowtie2-index/Homo_sapiens.GRCh38.dna.primary_assembly ../odd_roza_rnaseq/pEF1_U2992_3_NonPhiX_R1.fq ../odd_roza_rnaseq/pEF1_U2992_3_NonPhiX_R2.fq 2> log/pEF1_U2992_3_NonPhiX_tophat2.out2 &
+
+
